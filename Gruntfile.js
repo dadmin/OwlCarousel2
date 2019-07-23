@@ -120,6 +120,10 @@ module.exports = function(grunt) {
 				dist: {
 					files: {
 						'dist/<%= pkg.name %>.js': '<%= app.src.scripts %>'
+					},
+					options: {
+						banner: ";(function(factory) {if (typeof exports === 'object' && typeof module !== 'undefined') {module.exports = factory(require('jquery'), window, document);} else {factory(window.Zepto || window.jQuery, window, document);}})(function(jQuery, window, document, undefined) {'use strict';",
+						footer: "return jQuery;});"
 					}
 				}
 			},
@@ -314,6 +318,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('serve', [ 'connect:docs', 'watch' ]);
 
 	grunt.registerTask('zip', [ 'compress' ]);
+
+	grunt.registerTask('scripts', [ 'jshint:dist', 'concat:dist', 'uglify:dist', 'usebanner:dist', 'copy:distToDocs', 'copy:srcToDocs' ]);
 
 	grunt.registerTask('deploy', [ 'docs', 'gh-pages' ]);
 
