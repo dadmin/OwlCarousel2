@@ -18,11 +18,11 @@ Or download the [latest release](https://github.com/OwlCarousel2/OwlCarousel2/re
 ### Load
 
 #### Webpack
-Load the required stylesheet and JS:
+There is no need to use webpack provide plugin. The plugin takes your locally insalled jquery library and extends it. The plugin exports your jquery object with extended functionallity. You just need to import the required stylesheet and JS:
 
 ```js
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import $ from 'owl.carousel';
+import '@codevadmin/owl.carousel/dist/assets/owl.carousel.css';
+import $ from '@codevadmin/owl.carousel';
 
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel();
