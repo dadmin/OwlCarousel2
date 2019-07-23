@@ -18,26 +18,15 @@ Or download the [latest release](https://github.com/OwlCarousel2/OwlCarousel2/re
 ### Load
 
 #### Webpack
-
-Add jQuery via the "webpack.ProvidePlugin" to your webpack configuration:
-    
-    const webpack = require('webpack');
-    
-    //...
-    plugins: [
-        new webpack.ProvidePlugin({
-          $: 'jquery',
-          jQuery: 'jquery',
-          'window.jQuery': 'jquery'
-        }),
-    ],
-    //...
-
 Load the required stylesheet and JS:
 
 ```js
 import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
+import $ from 'owl.carousel';
+
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel();
+});
 ```
 
 #### Static HTML
@@ -87,7 +76,7 @@ Wrap your items (`div`, `a`, `img`, `span`, `li` etc.) with a container element 
 
 Call the [plugin](https://learn.jquery.com/plugins/) function and your carousel is ready.
 
-```javascript
+```js
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel();
 });
